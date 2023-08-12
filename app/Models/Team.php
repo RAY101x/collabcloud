@@ -15,7 +15,7 @@ class Team extends JetstreamTeam
     /**
      * The attributes that should be cast.
      *
-     * @var array<string, string>
+     * @var array
      */
     protected $casts = [
         'personal_team' => 'boolean',
@@ -24,7 +24,7 @@ class Team extends JetstreamTeam
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var string[]
      */
     protected $fillable = [
         'name',
@@ -34,11 +34,38 @@ class Team extends JetstreamTeam
     /**
      * The event map for the model.
      *
-     * @var array<string, class-string>
+     * @var array
      */
     protected $dispatchesEvents = [
         'created' => TeamCreated::class,
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+<<<<<<< Updated upstream
+=======
+
+    public static function booted()
+    {
+        static::created(function($team){
+            $object=$team->objects()->make(['parent_id'=>null]);
+            $object->objectable()->associate($team->folders()->create(['name'=>$team->name]));
+            $object->save();
+        });
+    }
+
+    public function objects() 
+    {
+        return $this->hasMany(Obj::class);
+    }
+
+    public function files() 
+    {
+        return $this->hasMany(File::class);
+    }
+
+    public function folders() 
+    {
+        return $this->hasMany(Folder::class);
+    }
+>>>>>>> Stashed changes
 }
