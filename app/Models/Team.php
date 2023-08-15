@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Obj;
+use App\Models\File;
+use App\Models\Folder;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Team extends JetstreamTeam
 {
@@ -41,8 +44,6 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
-<<<<<<< Updated upstream
-=======
 
     public static function booted()
     {
@@ -67,5 +68,4 @@ class Team extends JetstreamTeam
     {
         return $this->hasMany(Folder::class);
     }
->>>>>>> Stashed changes
 }

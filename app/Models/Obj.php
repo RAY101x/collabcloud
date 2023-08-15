@@ -2,24 +2,18 @@
 
 namespace App\Models;
 
-<<<<<<< Updated upstream
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-=======
 use App\Models\Obj;
 use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
 use App\Models\Traits\RelatesToTeams;
->>>>>>> Stashed changes
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 class Obj extends Model
 {
-    use HasFactory;
+    use RelatesToTeams, HasRecursiveRelationships, Searchable;
 
-<<<<<<< Updated upstream
-    public $table = 'objects';
-    
-=======
     protected $table = 'objects';
 
     public $asYouType = true;
@@ -59,5 +53,4 @@ class Obj extends Model
     {
         return $this->hasMany(Obj::class, 'parent_id','id');
     }
->>>>>>> Stashed changes
 }

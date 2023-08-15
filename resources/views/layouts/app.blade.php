@@ -10,12 +10,6 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-<<<<<<< Updated upstream
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <!-- Styles -->
-        @livewireStyles
-=======
           <!-- Styles -->
           <link rel="stylesheet" href="{{ asset('css/app.css') }}">
           @livewireStyles
@@ -26,7 +20,6 @@
           <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 
           
->>>>>>> Stashed changes
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />

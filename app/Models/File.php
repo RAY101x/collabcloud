@@ -2,14 +2,6 @@
 
 namespace App\Models;
 
-<<<<<<< Updated upstream
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class File extends Model
-{
-    use HasFactory;
-=======
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -45,5 +37,4 @@ class File extends Model
             Storage::disk('local')->delete($model->path);
         });
     }
->>>>>>> Stashed changes
 }

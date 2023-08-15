@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Obj;
+use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-<<<<<<< Updated upstream
-        
-        
-        return view('files');
-=======
         $this->middleware(['auth']);
     }
 
@@ -38,6 +36,5 @@ class FileController extends Controller
         $this->authorize('download', $file);
 
         return Storage::disk('local')->download($file->path, $file->name);
->>>>>>> Stashed changes
     }
 }
